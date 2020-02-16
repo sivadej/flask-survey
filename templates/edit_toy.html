@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+editing {{ toy.id }} - {{ toy.name }}
+<form action="{{url_for('show_toy', id=toy.id)}}?_method=PATCH" method="POST">
+    <input type="text" name="toy-name" value="{{toy.name}}">
+    <input type="submit" value="edit toy">
+</form>
+
+<form action="{{url_for('show_toy', id=toy.id)}}?_method=DELETE" method="POST">
+    <input type="submit" value="Delete toy">
+</form>
+{% endblock %}

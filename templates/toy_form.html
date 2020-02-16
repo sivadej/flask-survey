@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% block content %}
+<form action="{{url_for('toys_home')}}" method="POST">
+    <input type="text" name="toy-name">
+    <input type="submit" value="Add a toy">
+</form>
+<p><a href="{{url_for('toys_home')}}">Toys home</a></p>
+{% endblock %}

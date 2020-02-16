@@ -1,0 +1,7 @@
+{% extends 'survey_base_template.html' %}
+{% block content %}
+<p><strong>{{ title }}</strong></p>
+{% for result in results %}
+    <p>{{ result }}</p>
+{% endfor %}
+{% endblock %}

@@ -1,0 +1,6 @@
+{% extends 'survey_base_template.html' %}
+{% block content %}
+<p><strong>Currently Viewing: {{ title }}</strong></p>
+<p>Instructions: {{ instructions }}</p>
+<a href="{{url_for('questions')}}">Start Survey</a>
+{% endblock %}
