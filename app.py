@@ -12,6 +12,9 @@ app.debug = False
 # set a secret key to enable Flask session cookies
 app.config['SECRET_KEY'] = 'yo'
 
+# prevent debugtoolbar from interrupting redirects
+app.config['DEBUG_TB_INTERCEPT_REDIRECTS'] = False
+
 toolbar = DebugToolbarExtension(app)
 
 # survey responses should be stored into this list.

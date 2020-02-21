@@ -1,4 +1,4 @@
-from flask import Flask, session, redirect, render_template, request, flash
+from flask import Flask, session, redirect, render_template, request, flash, jsonify
 from flask_debugtoolbar import DebugToolbarExtension
 
 app = Flask(__name__)
@@ -34,11 +34,20 @@ def add_movie():
     # pretend db
     if title in MOVIES:
         flash('movie already exists.', 'error')
+    elif title == '':
+        flash('cannot be blank')
     else:
         MOVIES.add(title)
         flash('movie successfully added!', 'success')
     return redirect('/movies')
 
+@app.route('/json')
+def json():
+    return jsonify({"title":"parasite","directors":{"main_director":"bong joon ho","co_director":"bomby k"}})
+
+@app.route('/movies/json')
+def get_movies_json():
+    return jsonify(list(MOVIES))
 
 if __name__ == '__main__':
     app.run(debug=True)
