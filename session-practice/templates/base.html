@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        .error { color:red; }
+        .success { color:green; }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>session-practice folder</title>
+</head>
+<body>
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+{% if messages %}
+    <section id="messages">
+    {% for category, msg in messages %}
+        <p class="{{category}}">{{ msg }}</p>
+    {% endfor %}
+    </section>
+{% endif %}
+{% endwith %}
+
+    <h1>base.html with %block content% below:</h1>
+    <hr/>
+    {% block content %}
+    {% endblock %}
+</body>
+</html>
